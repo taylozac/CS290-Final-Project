@@ -1,4 +1,4 @@
-# CS290 Final Project
+# CS290 Final Project: (Insert Project Here)
 
 ## Authors
 * Jonathan Dressel
