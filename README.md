@@ -8,4 +8,5 @@
 ## To Do:
 - [ ] Choose an idea to pursure.
 - [ ] Design the application.
+- [ ] Establish a style we will all use.
 - [ ] Implement.
