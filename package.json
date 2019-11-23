@@ -1,0 +1,27 @@
+{
+  "name": "final-project-cs290",
+  "version": "1.0.0",
+  "description": "Final project for CS290",
+  "main": "server.js",
+  "scripts": {
+    "test": "test-me",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taylozac/final-project-CS290.git"
+  },
+  "keywords": [
+    "cs290",
+    "final-project"
+  ],
+  "author": "Jonathan Dressel, Zachary Taylor, Benjiman Walsh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taylozac/final-project-CS290/issues"
+  },
+  "homepage": "https://github.com/taylozac/final-project-CS290#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
