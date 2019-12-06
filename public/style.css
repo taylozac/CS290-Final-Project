@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.hidden {
+    display: none;
+}
+
 .textbox-filter-div {
     margin: 5px, 5px, 0px, 5px;
     display: flex;
