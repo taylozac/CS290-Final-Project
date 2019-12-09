@@ -1,7 +1,27 @@
-.content {
+/*.content {
     display: flex;
+}*/
+
+body {
+    margin: 0px;
 }
 
+.site-title {
+    margin: 0px 0px 15px 0px;
+    height: 70px;
+    padding-top: 25px;
+}
+
+h1 {
+    background-color: black;
+}
+
+a {
+    color: white;
+}
+
+/*
+*/
 .hidden {
     display: none;
 }
