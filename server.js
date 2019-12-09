@@ -10,6 +10,7 @@ var fs = require('fs');
 var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
+var notesData = require('./notesData');
 
 //I use port 9000 since I run all of this on the ENGR servers and
 //no one uses it. Feel free to change it to whatever you need. If
@@ -43,6 +44,17 @@ app.get('/', function (req, res, next) {
 //app.get('/style.css', function(req, res) {
 //  res.status(200).sendFile(__dirname + '/public/style.css');
 //});
+//
+
+app.get('/notes', function (req, res) {
+  res.status(200);
+  res.render('notePage', {noteObject: notesData[0]});
+
+
+
+});
+
+
 
 //Catch for all invalid URLs
 app.get('/*', function (req, res, next) {
@@ -53,3 +65,31 @@ app.get('/*', function (req, res, next) {
 app.listen(port, function() {
     console.log("Server is listening on port " + port + ".");
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

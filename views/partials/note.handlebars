@@ -1,0 +1,10 @@
+<div id="note-section">
+   <h1>{{noteObject.description}}</h1>
+
+   <ul>
+     {{#each noteObject.children}}
+         {{> subnote}}
+      {{/each}}
+   </ul>
+
+</div>
