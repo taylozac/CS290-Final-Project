@@ -5,14 +5,17 @@
  * Author: Zachary Taylor
  */
 
+var path = require('path');
+var fs = require('fs');
 var express = require('express');
-var app = express();
+var exphbs = require('express-handlebars');
+var bodyParser = require('body-parser');
 
-//I use port 9001 since I run all of this on the ENGR servers and
+//I use port 9000 since I run all of this on the ENGR servers and
 //no one uses it. Feel free to change it to whatever you need. If
 //your computer has a default port it will use that instead.
-var port = process.env.PORT || 9001;
-
+var port = process.env.PORT || 9000;
+var app = express();
 
 //Defining logger function
 function logger (req, res, next) {
@@ -25,15 +28,25 @@ function logger (req, res, next) {
 //Using logger function
 app.use(logger);
 
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+app.use(express.static('public'));
 
 //Catch for default path '/'
 app.get('/', function (req, res, next) {
-    res.status(200).sendFile(__dirname + '/public/index.html');
+    //res.status(200).sendFile(__dirname + '/public/index.html');
+    res.render('rootPage');
 });
+
+//temp
+//app.get('/style.css', function(req, res) {
+//  res.status(200).sendFile(__dirname + '/public/style.css');
+//});
 
 //Catch for all invalid URLs
 app.get('/*', function (req, res, next) {
-    res.status(404).sendFile(__dirname + '/public/404.html');           
+    res.render('404Page');
 });
 
 

@@ -5,7 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "test-me",
-    "start": "node server.js"
+    "b-partials": "handlebars views/partials/*.handlebars -rf public/templates.js",
+    "build": "npm run b-partials",
+    "prestart": "npm run build",
+    "start": "node server.js",
+    "clean": "rm -f public/templates.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +26,12 @@
   },
   "homepage": "https://github.com/taylozac/final-project-CS290#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "handlebars": "^4.5.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.0"
   }
 }
