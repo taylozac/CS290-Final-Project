@@ -17,6 +17,8 @@ var bodyParser = require('body-parser');
 var port = process.env.PORT || 9000;
 var app = express();
 
+var noteData = require('./noteData');
+
 //Defining logger function
 function logger (req, res, next) {
     console.log("====================\nReceived request:");
@@ -37,6 +39,10 @@ app.use(express.static('public'));
 app.get('/', function (req, res, next) {
     //res.status(200).sendFile(__dirname + '/public/index.html');
     res.render('rootPage');
+});
+
+app.get('/notes', function (req, res) {
+   res.render('notePage', note=noteData[0]);
 });
 
 //temp

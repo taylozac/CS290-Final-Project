@@ -1,22 +1,12 @@
  <aside class="toolbar-container">
      <section id="current-note-container">
-         {{>toolbarButton {
-                iconName: "previous",
-                templateName: "back"
-
-            }
-          }}
-         {{> toolbarButton {
-                iconName: "current-note",
-                templateName: note.typeName
-
-             }
-          }}
+         {{> toolbarButton iconName="previous" templateName="back"}}
+         {{> toolbarButton iconName=iconName templateName="current-note" }}
 
       </section>
      <section id="subnote-templates">
 
-         {{#each note.subnoteTemplates}}
+         {{#each subnoteTemplates}}
              {{> toolbarButton}}
           {{/each}}
 
