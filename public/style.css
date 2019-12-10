@@ -31,8 +31,11 @@ a {
     display: flex;
 }
 
-.add-button {
-    background-color: #4CAF50; /* Green */
+.notepad-button {
+    height: 48px;
+    width: 137.844px;
+   /* background-color: rgb(170, 170, 177);*/
+    background-color: black;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -58,6 +61,9 @@ a {
 }
 
 .bottom-buttons {
-    min-width: 75px;
-    min-height: 40px;
+    /*background-color: rgb(170, 170, 177);*/
+    background-color: black;
+    width: 75px;
+    height: 40px;
+    color: white;
 }
