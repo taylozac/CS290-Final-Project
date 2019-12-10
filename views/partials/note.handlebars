@@ -1,0 +1,14 @@
+<section id="note-container">
+    <div class="note-description">
+        <h4>{{note.typeName}}</h4>
+        <textarea>{{note.noteDescription}}</textarea>
+    </div>
+    <div class="note-content">
+        {{#each note.subnotes}}
+            {{> subnote}}
+         {{/each}}
+
+
+      </div>
+ 
+ </section>
