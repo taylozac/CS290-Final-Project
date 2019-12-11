@@ -13,7 +13,7 @@ var note = {
 
 function new_subnote(note, template, description) {
    var subnote = {
-      "typeName": template.templateName,
+       "typeName": template.templateName,
        "iconName": template.iconName,
        "noteDescription": description,
        "subnotes": [],
@@ -34,3 +34,12 @@ for(var i=0; i < 20; i++) {
    new_subnote(note, template, i);
 }
 
+
+function saveNote(e) {
+  var evtobj = window.event? event : e
+  if (evtobj.ctrlKey && evtobj.shiftKey && evtobj.keyCode == 83) {
+    alert("Would have saved.");
+  }
+}
+
+document.onkeydown = saveNote;
