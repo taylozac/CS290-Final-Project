@@ -299,3 +299,27 @@ canvas {
     right: 0;
     background-color: rgb(200, 70, 48, .85);
 }
+
+#new-drawing {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    height: 60px;
+    width: 60px;
+    border: none;
+    border-radius: 29px;
+    font-size: 35px;
+    background-color: #BFC0C0;
+    color: #FCF7FF;
+    cursor: pointer;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+  }
+  
+  #new-drawing:hover, #new-drawing:focus {
+    right: 26px;
+    bottom: 26px;
+    height: 65px;
+    width: 65px;
+    border-radius: 32px;
+    font-size: 40px;
+  }
