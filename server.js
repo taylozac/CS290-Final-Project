@@ -45,6 +45,14 @@ app.get('/drawings', function (req, res) {
    res.render('drawings', drawingData);
 });
 
+app.get('/drawings/:n', function (req, res, next) {
+   var n = req.params.n;
+   if(n >= 0 && n < drawingData.length) {
+      res.render('drawing', drawingData[n]);
+   }
+   else next();
+});
+
 //temp
 //app.get('/style.css', function(req, res) {
 //  res.status(200).sendFile(__dirname + '/public/style.css');
