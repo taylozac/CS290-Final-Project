@@ -1,42 +1,4 @@
-/*var template = {
-   "templateName": "Outline",
-   "iconName": "list"
-};
-
-var note = {
-   "typeName": "Outline",
-   "iconName": "list",
-   "noteDescription": "Friday Lecture 12/2",
-   "subnotes": [],
-   "subnoteTemplates": []
-};
-
-function new_subnote(note, template, description) {
-   var subnote = {
-       "typeName": template.templateName,
-       "iconName": template.iconName,
-       "noteDescription": description,
-       "subnotes": [],
-       "subnoteTemplates": []
-   };
-
-   note.subnotes.push(subnote);
-
-   var subnoteHTML = Handlebars.templates.subnote(subnote);
-
-   var subnotesSection = document.getElementById('note-content-container');
-   subnotesSection.insertAdjacentHTML('beforeend', subnoteHTML);
-
-  
-
-}
-for(var i=0; i < 20; i++) {
-   new_subnote(note, template, i);
-}*/
-
-//var currentDrawing;
-
-currentDrawing = JSON.parse(currentDrawing.replace(/&quot;/g,'"'));
+var currentDrawing = JSON.parse(currentDrawing.replace(/&quot;/g,'"'));
 console.log(currentDrawing);
 
 var currentStroke = [];
@@ -58,7 +20,7 @@ nameTextarea.addEventListener('change',editDrawingName, false);
 
 function drawPrevious(stroke) {
    ctx.moveTo(stroke[0].x, stroke[0].y);
-   for(var i = 1; i < drawing.length; i++) {
+   for(var i = 1; i < stroke.length; i++) {
       ctx.lineTo(stroke[i].x, stroke[i].y);
       ctx.stroke();
       
@@ -84,6 +46,7 @@ function initCanvas() {
    ctx = canvas.getContext('2d');
    offset = {x:0, y:0};
    for(var i = 0; i < currentDrawing.strokes.length; i++) {
+      console.log(currentDrawing.strokes[i]);
       drawPrevious(currentDrawing.strokes[i]);
    }
    
