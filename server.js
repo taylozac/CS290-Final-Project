@@ -39,7 +39,11 @@ app.use(bodyParser.json());
 
 //Catch for default path '/'
 app.get('/', function (req, res, next) {
-    res.render('drawings', drawingData);
+    res.render('drawings', {
+	    drawingData: drawingData
+    
+    
+    });
 });
 
 app.get('/drawings', function (req, res) {

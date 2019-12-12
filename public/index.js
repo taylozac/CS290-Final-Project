@@ -1,4 +1,4 @@
-var currentDrawing = JSON.parse(currentDrawing.replace(/&quot;/g,'"'));
+currentDrawing = JSON.parse(currentDrawing.replace(/&quot;/g,'"'));
 console.log(currentDrawing);
 
 var currentStroke = [];
@@ -44,7 +44,7 @@ function draw(event) {
 
 function initCanvas() {
    ctx = canvas.getContext('2d');
-   offset = {x:0, y:0};
+   offset = {x:0, y:203};
    for(var i = 0; i < currentDrawing.strokes.length; i++) {
       console.log(currentDrawing.strokes[i]);
       drawPrevious(currentDrawing.strokes[i]);
