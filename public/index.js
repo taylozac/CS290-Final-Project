@@ -34,13 +34,10 @@ for(var i=0; i < 20; i++) {
    new_subnote(note, template, i);
 }*/
 
+//var currentDrawing;
 
-var currentDrawing = {
-   name: "New Note",
-   index: 0,
-   strokes: []
-
-};
+currentDrawing = JSON.parse(currentDrawing.replace(/&quot;/g,'"'));
+console.log(currentDrawing);
 
 var currentStroke = [];
 
@@ -130,11 +127,40 @@ function initCanvas() {
 
 initCanvas();
 
+
 function saveNote(e) {
   var evtobj = window.event? event : e
   if (evtobj.ctrlKey && evtobj.shiftKey && evtobj.keyCode == 83) {
-    alert("Would have saved.");
+    //alert("Would have saved.");
+    save();
   }
 }
 
 document.onkeydown = saveNote;
+
+
+function save () {
+    console.log(currentDrawing);
+    
+    var postRequest = new XMLHttpRequest();
+    var requestURL = "/drawing/" + currentDrawing.index  + "/save";
+
+    postRequest.open('POST', requestURL);
+
+    var requestBody = JSON.stringify({
+        name: currentDrawing.name,
+        index: currentDrawing.index,
+        strokes: currentDrawing.strokes
+    });
+
+    postRequest.setRequestHeader('Content-Type', 'application/json');
+
+    postRequest.addEventListener('load', function (event) {
+        if (event.target.status !== 200) {
+            var responseBody = event.target.response;
+            alert("Error saving drawing on server side:" + responseBody);
+        }
+    });
+    
+    postRequest.send(requestBody);
+}

@@ -1,9 +1,14 @@
 <main class="content">
-   <div class="drawing-name-container">
-      <textarea id="name-textarea">{{name}}</textarea>
-   </div>
-   <div class="drawing-container">
-      <canvas id="drawing" width="500" height="500"></canvas
-   </div>
+    <div class="drawing-name-container">
+        <textarea id="name-textarea">{{name}}</textarea>
+    </div>
+    <div class="drawing-container">
+        <canvas id="drawing" width="500" height="500"></canvas>
+       
+        <script type="text/javascript">
+            var currentDrawing = '{{body}}';
+        </script>
+
+    </div>
 
 </main>

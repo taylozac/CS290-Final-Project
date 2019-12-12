@@ -35,28 +35,60 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
+app.use(bodyParser.json());
+
 //Catch for default path '/'
 app.get('/', function (req, res, next) {
-    //res.status(200).sendFile(__dirname + '/public/index.html');
     res.render('drawings', drawingData);
 });
 
 app.get('/drawings', function (req, res) {
-   res.render('drawings', drawingData);
+    res.render('drawings', drawingData);
 });
 
+//Rendering page with the given drawing
 app.get('/drawings/:n', function (req, res, next) {
-   var n = req.params.n;
-   if(n >= 0 && n < drawingData.length) {
-      res.render('drawing', drawingData[n]);
-   }
-   else next();
+    var n = req.params.n;
+    if(n >= 0 && n < drawingData.length) {
+        var responseBody = {
+            name: drawingData[n].name,
+            body: JSON.stringify(drawingData[n])
+        }
+        res.render('drawing', responseBody);
+    }
+    else next();
 });
 
-//temp
-//app.get('/style.css', function(req, res) {
-//  res.status(200).sendFile(__dirname + '/public/style.css');
-//});
+console.log(drawingData[0]);
+
+//Receiving request from client to save.
+app.post('/drawing/:n/save', function (req, res, next) {
+    var n = req.params.n;
+    if(drawingData[n]) {
+        console.log(req.body);
+        if(req.body && req.body.strokes && req.body.name){
+            drawingData[n] = req.body;
+
+            fs.writeFile(
+                __dirname + '/drawingData.json',
+                JSON.stringify(drawingData, 2, null),
+                function (err) {
+                    if (!err) {
+                        res.status(200).send();
+                    } else {
+                        res.status(500).send("Failed to write data to server.");
+                    }
+                }
+            );
+
+        } else {
+            res.status(400).send("Request body not full.");
+        }
+    } else {
+        next();
+    }
+});
+
 
 //Catch for all invalid URLs
 app.get('/*', function (req, res, next) {
