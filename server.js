@@ -104,12 +104,31 @@ app.post('/drawings/newPost', function (req, res, next) {
     }
     drawingData.push(newDrawing);
 
-    console.log(drawingData.length)
+    //console.log(drawingData.length)
 
     fs.writeFile(
         __dirname + 'drawingData.json',
         JSON.stringify(drawingData, 2, null)
     );
+});
+
+app.post('/drawings/trash/:n', function (req, res, next) {
+    var n = req.params.n;
+    if (n >= 0 && n < drawingData.length) {
+        drawingData.splice(n, 1);
+        for (i = n; i < drawingData.length; i++) {
+            drawingData[i].index = drawingData[i].index - 1;
+        }
+
+        console.log(drawingData.length);
+
+        fs.writeFile(
+            __dirname + 'drawingData.json',
+            JSON.stringify(drawingData, 2, null)
+        );
+
+        console.log(drawingData);
+    }
 });
 
 //Catch for all invalid URLs

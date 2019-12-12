@@ -4,7 +4,7 @@ var newDrawingButton = document.getElementById('new-drawing');
 if (newDrawingButton) {
     newDrawingButton.addEventListener("click", function () {
         
-        console.log("clicked new");
+        //console.log("clicked new");
         
         var postRequest = new XMLHttpRequest();
         var requestURL = "/drawings/newPost";
@@ -14,6 +14,23 @@ if (newDrawingButton) {
         postRequest.send();
     })
 }
+
+
+var trashButtons = document.getElementById('drawings-list');
+
+if(trashButtons) {
+    trashButtons.addEventListener("click", function (event) {
+        
+        //console.log(event.target.id);
+        var postRequest = new XMLHttpRequest();
+        var requestURL = "drawings/trash/" + event.target.id;
+
+        postRequest.open('POST', requestURL);
+
+        postRequest.send();
+    });
+}
+
 
 if (currentDrawing){
     currentDrawing = JSON.parse(currentDrawing.replace(/&quot;/g,'"'));
