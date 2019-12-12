@@ -39,8 +39,10 @@ h1 {
 }
 
 a {
+    text-decoration: none;
     background-color: #BFC0C0;
     color: #79ADDC;
+    border-radius: 7px;
 }
 
 .hidden {
@@ -78,6 +80,14 @@ a {
 #textbox {    
     min-width: 600px;
     min-height: 500px;
+}
+
+.drawing-list-item {
+    margin-left: 5px;
+    width: 118px;
+    height: 45px;
+    background-color: #BFC0C0;;
+    font-size: 40px;
 }
 
 .bottom-buttons {
