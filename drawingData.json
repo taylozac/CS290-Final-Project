@@ -1,7 +1,18 @@
 [
     {
-        "name": "temp",
-        "index": "-1",
+        "name": "temp1",
+        "index": "0",
+        "strokes:": []
+    },  
+    {
+        "name": "temp2",
+        "index": "1",
+        "strokes:": []
+    },
+    {
+        "name": "temp3",
+        "index": "2",
         "strokes:": []
     }
+    
 ]
