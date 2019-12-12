@@ -1,5 +1,24 @@
-currentDrawing = JSON.parse(currentDrawing.replace(/&quot;/g,'"'));
-console.log(currentDrawing);
+var newDrawingButton = document.getElementById('new-drawing');
+
+//Adding a new drawing
+if (newDrawingButton) {
+    newDrawingButton.addEventListener("click", function () {
+        
+        console.log("clicked new");
+        
+        var postRequest = new XMLHttpRequest();
+        var requestURL = "/drawings/newPost";
+
+        postRequest.open('POST', requestURL);
+        
+        postRequest.send();
+    })
+}
+
+if (currentDrawing){
+    currentDrawing = JSON.parse(currentDrawing.replace(/&quot;/g,'"'));
+    //console.log(currentDrawing);
+}
 
 var currentStroke = [];
 

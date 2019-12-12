@@ -95,6 +95,22 @@ app.post('/drawing/:n/save', function (req, res, next) {
     }
 });
 
+//Receiving request from client for new note.
+app.post('/drawings/newPost', function (req, res, next) {
+    var newDrawing = {
+        name: "New Note",
+        index: drawingData.length,
+        strokes: []
+    }
+    drawingData.push(newDrawing);
+
+    console.log(drawingData.length)
+
+    fs.writeFile(
+        __dirname + 'drawingData.json',
+        JSON.stringify(drawingData, 2, null)
+    );
+});
 
 //Catch for all invalid URLs
 app.get('/*', function (req, res, next) {
