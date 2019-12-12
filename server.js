@@ -43,7 +43,9 @@ app.get('/', function (req, res, next) {
 });
 
 app.get('/drawings', function (req, res) {
-    res.render('drawings', drawingData);
+    res.render('drawings', {
+        drawingData: drawingData
+    });
 });
 
 //Rendering page with the given drawing
