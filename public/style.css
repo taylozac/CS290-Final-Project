@@ -7,7 +7,7 @@ body {
 header div {
     display: inline-block;
     background-color: #BFC0C0;
-    color: #79ADDC;
+    color: #29ADDC;
 }
 
 header {
@@ -41,7 +41,7 @@ h1 {
 a {
     text-decoration: none;
     background-color: #BFC0C0;
-    color: #79ADDC;
+    color: #29ADDC;
     border-radius: 7px;
 }
 
@@ -70,6 +70,11 @@ a {
     font-size: 16px;
 }
 
+.content h2 {
+    color: #29ADDC;
+    font-size: 30px;
+}
+
 .textbox-div {
     background-color: rgb(239, 239, 239);
     top: 20px;
@@ -88,6 +93,17 @@ a {
     height: 45px;
     background-color: #BFC0C0;;
     font-size: 40px;
+    border-radius: 7px;
+}
+
+.drawing-list-item :hover {
+    background-color: #FE938C;
+    border-radius: 7px;
+}
+
+.drawing-list-item h4:hover {
+    background-color: #FE938C;
+    border-radius: 7px;
 }
 
 .bottom-buttons {
@@ -98,8 +114,9 @@ a {
     height: 40px;
     color: white;
 }
+
 .content {
-    margin: 0;
+    margin: 0px;
 }
 
 .toolbar-container {
@@ -168,11 +185,12 @@ a {
 }
 
 textarea {
+    height: 29px;
     resize: none;
     border: none;
     background-color: rgba(0, 0, 0, 0);
     font-family: sans-serif;
-    font-size: 15px;
+    font-size: 25px;
 }
 
 canvas {
@@ -192,6 +210,10 @@ canvas {
     background-color: #E6E6E6;
     width: 100vw;
     min-height: 100vh;
+}
+
+.drawing-container {
+    background-color: white;
 }
 
 .note-description {
