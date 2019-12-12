@@ -17,7 +17,7 @@ var bodyParser = require('body-parser');
 var port = process.env.PORT || 9000;
 var app = express();
 
-var noteData = require('./noteData');
+var drawingData = require('./drawingData');
 
 //Defining logger function
 function logger (req, res, next) {
@@ -38,11 +38,11 @@ app.use(express.static('public'));
 //Catch for default path '/'
 app.get('/', function (req, res, next) {
     //res.status(200).sendFile(__dirname + '/public/index.html');
-    res.render('rootPage');
+    res.render('drawings', drawingData);
 });
 
-app.get('/notes', function (req, res) {
-   res.render('notePage', note=noteData[0]);
+app.get('/drawings', function (req, res) {
+   res.render('drawings', drawingData);
 });
 
 //temp
@@ -52,7 +52,7 @@ app.get('/notes', function (req, res) {
 
 //Catch for all invalid URLs
 app.get('/*', function (req, res, next) {
-    res.render('404Page');
+    res.render('404');
 });
 
 
